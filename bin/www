@@ -3,10 +3,11 @@
 // Module dependencies;
 const app = require('../app');
 const http = require('http');
-const { normalizePort, onListening } = require('./config');
+const { normalizePort, onListening, defaultPort } = require('./config');
+
 
 // Get port from environment and store in Express;
-const port = normalizePort(process.env.PORT || '1234');
+const port = normalizePort(process.env.PORT || defaultPort);
 app.set('port', port);
 
 // Create HTTP server;

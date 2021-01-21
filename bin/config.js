@@ -1,6 +1,8 @@
 // Module dependencies;
 const debug = require('debug')('posterior-chain:server');
 
+const defaultPort = '8080'
+
 // Normalize a port into a number, string, or false;
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -21,5 +23,6 @@ const onListening = server => () => {
 // Export our helper functions in order to configure our HTTP server in bin/www;
 module.exports = {
   normalizePort,
-  onListening
+  onListening,
+  defaultPort
 }
