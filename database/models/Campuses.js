@@ -22,7 +22,7 @@ const Campuses = db.define("campuses", {
 
   address: {
       type: Sequelize.String,
-      allowNull: false
+      allowNull: false,
   },
 
   description: {
