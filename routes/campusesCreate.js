@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 //Get model
-const { model } = require('../database/models');
+const  model  = require('../database/models');
 
 //Get all campuses
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
   model.Campuses.create({
     name: req.body.name,
     imageUrl: req.body.imageUrl,

@@ -12,14 +12,14 @@ router.post('/', function(req, res, next) {
       email: req.body.email,
       imageUrl: req.body.imageUrl,
       gpa: req.body.gpa,
-      campusId: req.body.campusId,
+      campusesId: req.body.campusesId,
   })
 
-  .then(students => {
+  .then(students, studentsId => {
     res.status(200)
     .json({
       message: "CREATED A STUDENT",
-      students
+      students, studentsId
     });
   })
   .catch (error => {

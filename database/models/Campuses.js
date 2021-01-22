@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 //Call in the database
-const db = require('../db');
+const db = require('../db').sequelize;
 
 //Campus model
 const Campuses = db.define("campuses", {
@@ -13,7 +13,7 @@ const Campuses = db.define("campuses", {
   },
 
   imageUrl: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     defaultValue: "This is an image",
     validate: {
       isUrl: true,
@@ -21,7 +21,7 @@ const Campuses = db.define("campuses", {
   },
 
   address: {
-      type: Sequelize.String,
+      type: Sequelize.STRING,
       allowNull: false,
   },
 

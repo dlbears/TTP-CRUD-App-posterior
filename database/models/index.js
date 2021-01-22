@@ -3,6 +3,9 @@
 const Students = require('./Students');
 const Campuses = require('./Campuses');
 
+const db = require('../db');
+db.sequelize.sync({alter: true});
+
 Students.belongsTo(Campuses);
 Campuses.hasMany(Students);
 

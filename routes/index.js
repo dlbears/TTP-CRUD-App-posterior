@@ -1,5 +1,4 @@
 const express = require('express');
-const { Campuses } = require('../database/models');
 const router = express.Router();
 
 // Subrouters;
