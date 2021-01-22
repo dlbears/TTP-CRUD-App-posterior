@@ -2,21 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 //Get model
-const  model  = require('../database/models');
+const model = require('../database/models');
 
 //Get all campuses
-router.post('/', function(req, res, next) {
-  model.Campuses.create({
-    name: req.body.name,
-    imageUrl: req.body.imageUrl,
-    address: req.body.address,
-    description: req.body.description,
-  })
-  .then(campuses => {
+router.get('/', function(req, res, next) {
+  model.Campus.findAll()
+    .then(campus => {
     res.status(200)
     .json({
-      message: "CREATED A CAMPUS",
-      campuses
+      message: "GOT ALL CAMPUS",
+      campus
     });
   })
   .catch (error => {

@@ -2,24 +2,25 @@ const express = require('express');
 const router = express.Router();
 
 //Get model
-const { model } = require('../database/models');
+const model = require('../database/models');
 
 //Create a student
 router.post('/', function(req, res, next) {
-  model.Students.Create({
+  model.Student.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
       imageUrl: req.body.imageUrl,
       gpa: req.body.gpa,
-      campusesId: req.body.campusesId,
+      campusId: req.body.campusId,
   })
 
-  .then(students, studentsId => {
+  .then((student, studentId) => {
     res.status(200)
     .json({
       message: "CREATED A STUDENT",
-      students, studentsId
+      student, 
+      studentId
     });
   })
   .catch (error => {

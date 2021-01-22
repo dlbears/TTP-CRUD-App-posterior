@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const db = require('../db').sequelize;
 
 //Campus model
-const Campuses = db.define("campuses", {
+const Campus = db.define("campus", {
 
   name: {
     type: Sequelize.STRING,
@@ -31,4 +31,4 @@ const Campuses = db.define("campuses", {
 
 });
 
-module.exports = Campuses;
+module.exports = Campus;

@@ -4,6 +4,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
+//calling the routes folder
 app.use('/routes', require('./routes'));
 
 

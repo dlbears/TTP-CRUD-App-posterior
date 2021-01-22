@@ -2,27 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 // Subrouters;
-const studentsAllRouter = require('./studentsAll');
-//const studentsOneRouter = require('./studentsOne');
-const studentsCreateRouter = require('./studentsCreate');
-//const studentsDeleteRouter = require('./studentsDelete');
+const studentAllRouter = require('./studentAll');
+const studentOneRouter = require('./studentOne');
+const studentCreateRouter = require('./studentCreate');
+//const studentDeleteRouter = require('./studentDelete');
 
-const campusesAllRouter = require('./campusesAll');
-//const campusesOneRouter = require('./campusesOne');
-const campusesCreateRouter = require('./campusesCreate');
-//const campusesDeleteRouter = require('./campusesDelete');
+const campusAllRouter = require('./campusAll');
+const campusOneRouter = require('./campusOne');
+const campusCreateRouter = require('./campusCreate');
+//const campusDeleteRouter = require('./campusDelete');
 
 
 // Mount our subrouters to assemble our apiRouter;
-router.use('/studentsAll', studentsAllRouter);
-//router.use('/studentsOne', studentsOneRouter);
-router.use('/studentsCreate', studentsCreateRouter);
-//router.use('/studentsDelete', studentsDeleteRouter);
+router.use('/studentAll', studentAllRouter);
+router.use('/studentOne', studentOneRouter);
+router.use('/studentCreate', studentCreateRouter);
+//router.use('/studentDelete', studentDeleteRouter);
 
-router.use('/campusesAll', campusesAllRouter);
-//router.use('/campusesOne', campusesOneRouter);
-router.use('/campusesCreate', campusesCreateRouter);
-//router.use('/campusesDelete', campusesDeleteRouter);
+router.use('/campusAll', campusAllRouter);
+router.use('/campusOne', campusOneRouter);
+router.use('/campusCreate', campusCreateRouter);
+//router.use('/campusDelete', campusDeleteRouter);
 
 
 // Error handling middleware;
