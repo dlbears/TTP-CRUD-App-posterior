@@ -27,18 +27,18 @@ const Student = db.define("student", {
 
   imageUrl:{
     type: Sequelize.STRING,
-    defaultValue: "This is an image",
-     validate: {
-       isUrl: true,
-     }
+    defaultValue: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
+    validate: {
+      isUrl: true,
+    }
   },
 
   gpa: {
     type: Sequelize.FLOAT,
-  //   validate: {
-  //     min: 0.0,
-  //     max: 4.0,
-  //   }
+     validate: {
+       min: 0.0,
+       max: 4.0,
+    }
   }
 
 });

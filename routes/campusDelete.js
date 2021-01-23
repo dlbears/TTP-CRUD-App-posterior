@@ -13,7 +13,7 @@ router.delete('/:id', function(req, res, next){
             .json({
                 message: "CANNOT FIND CAMPUS"
             })
-        }
+        } else {
 
         campus.destroy();
 
@@ -21,6 +21,7 @@ router.delete('/:id', function(req, res, next){
         .json({
             message: "CAMPUS IS DELETED"
         });
+    }
     })
     .catch(error => {
         res.status(404)

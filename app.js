@@ -1,10 +1,24 @@
 const express = require('express');
 const app = express();
+const db = require('./database/db')
+const seedDatabase = require('./utilities/seedDatabase')
+
+//Change to true to retain changes in db between server restarts
+const noSeed = false; 
 
 app.use(express.json());
 app.use(express.urlencoded());
 
-//calling the routes folder
+if (process.env.NODE_ENV === 'production') {
+  db.sequelize.sync();
+} else if (noSeed) {
+  db.sequelize.sync({alter: true});
+} else {
+  db.sequelize.drop()
+  .then(() => db.sequelize.sync({alter: true}))
+  .then(() => seedDatabase())
+}
+
 app.use('/routes', require('./routes'));
 
 
