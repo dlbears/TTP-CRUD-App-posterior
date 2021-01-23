@@ -27,7 +27,7 @@ const Students = db.define("students", {
 
   imageUrl:{
     type: Sequelize.STRING,
-    defaultValue: "This is an image",
+    defaultValue: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
     validate: {
       isUrl: true,
     }

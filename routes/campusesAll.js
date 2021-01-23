@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //Get model
-const { model } = require('../database/models');
+const model = require('../database/models');
 
 //Get all campuses
 router.get('/', function(req, res, next) {
