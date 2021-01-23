@@ -8,12 +8,12 @@ const model = require('../database/models');
 router.get('/:id', function(req, res, next){ 
     model.Student.findByPk(req.params.id)
     .then(student => {
-        if (!student){
+        if (!student) {
             res.status(404)
             .json({
                 message: "CANNOT FIND STUDENT"
             })
-        }
+        } else {
 
         student.destroy();
 
@@ -21,6 +21,7 @@ router.get('/:id', function(req, res, next){
         .json({
             message: "STUDENT IS DELETED"
         });
+    }
     })
     .catch(error => {
         res.status(404)
