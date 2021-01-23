@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-//Get  model
-const { model } = require('../database/models');
+//Get model
+const model = require('../database/models');
 
 //Get all students
 router.get('/', function(req, res, next) {
-  model.Students.findAll()
-  .then(students => {
+  model.Student.findAll()
+  .then(student => {
     res.status(200)
     .json({
       message: "GOT ALL STUDENTS",
-      students
+      student
     });
   })
   .catch (error => {

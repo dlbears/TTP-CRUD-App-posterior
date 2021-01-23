@@ -3,6 +3,7 @@
 // Module dependencies;
 const Sequelize = require('sequelize');
 
+//calling your local psql
 const sequelize = new Sequelize('campus_students', 'postgres', 'Bakugan7399',{
     host: 'localhost',
     dialect: 'postgres'

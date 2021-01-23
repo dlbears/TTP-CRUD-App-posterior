@@ -5,14 +5,14 @@ const Sequelize = require('sequelize');
 const db = require('../db').sequelize;
 
 //Student model
-const Students = db.define("students", {
+const Student = db.define("student", {
 
-  firstName: {
+  firstname: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  lastName: {
+  lastname: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -20,9 +20,9 @@ const Students = db.define("students", {
   email: {
     type: Sequelize.STRING,
     allowNull: false,
-    validate: {
+     validate: {
       isEmail: true,
-    }
+     }
   },
 
   imageUrl:{
@@ -35,13 +35,12 @@ const Students = db.define("students", {
 
   gpa: {
     type: Sequelize.FLOAT,
-    validate: {
-      isFloat: true,
-      min: 0.0,
-      max: 4.0,
-    }
+  //   validate: {
+  //     min: 0.0,
+  //     max: 4.0,
+  //   }
   }
 
 });
 
-module.exports = Students;
+module.exports = Student;
