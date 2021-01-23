@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 //Call in the database
-const db = require('../db');
+const db = require('../db').sequelize;
 
 //Student model
 const Students = db.define("students", {
@@ -18,7 +18,7 @@ const Students = db.define("students", {
   },
 
   email: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       isEmail: true,
@@ -26,13 +26,13 @@ const Students = db.define("students", {
   },
 
   imageUrl:{
-    type: Sequelize.String,
-    defaultValue: "This is an image",
+    type: Sequelize.STRING,
+    defaultValue: "https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png",
     validate: {
       isUrl: true,
     }
   },
-  
+
   gpa: {
     type: Sequelize.FLOAT,
     validate: {
