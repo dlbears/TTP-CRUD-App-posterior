@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./app.js"
   },
   "dependencies": {
     "compression": "^1.7.3",
@@ -13,7 +13,9 @@
     "express": "~4.16.0",
     "helmet": "^3.14.0",
     "morgan": "~1.9.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
     "pgtools": "^0.3.0",
-    "sequelize": "^4.41.0"
+    "sequelize": "^4.44.4"
   }
 }
