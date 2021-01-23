@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const db = require('./database/db')
 const seedDatabase = require('./utilities/seedDatabase')
 
 //Change to true to retain changes in db between server restarts
 const noSeed = false; 
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded());
 
