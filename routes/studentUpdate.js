@@ -8,29 +8,30 @@ const model = require('../database/models');
 router.put('/:id', function(req, res, next){
     model.Student.findByPk(req.params.id)
     .then(student => {
-        if (!student)
+        if (!student){
             res.status(404)
             .json({
                 message: "CANNOT FIND STUDENT"
             })
-        
+        }
+        else {
+            student.update({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                imageUrl: req.body.imageUrl,
+                gpa: req.body.gpa,
+                campusId: req.body.campusId,
+            });
 
-        student.update({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            imageUrl: req.body.imageUrl,
-            gpa: req.body.gpa,
-            campusId: req.body.campusId,
-        });
+            student.save();
 
-        student.save();
-
-        res.status(200)
-        .json({
-            message: "STUDENT UPDATED",
-            student
-        });
+            res.status(200)
+            .json({
+                message: "STUDENT UPDATED",
+                student
+            });
+        }
     })
     .catch(error => {
         res.status(404)

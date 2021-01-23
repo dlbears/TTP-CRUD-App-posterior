@@ -14,21 +14,22 @@ router.put('/:id', function(req, res, next){
                 message: "CANNOT FIND CAMPUS"
             })
         }
+        else{
+            campus.update({
+                name: req.body.name,
+                imageUrl: req.body.imageUrl,
+                address: req.body.address,
+                description: req.body.description,
+            });
+        
+            campus.save();
 
-        campus.update({
-            name: req.body.name,
-            imageUrl: req.body.imageUrl,
-            address: req.body.address,
-            description: req.body.description,
-        });
-
-        campus.save();
-
-        res.status(200)
-        .json({
-            message: "CAMPUS UPDATED",
-            campus
-        });
+            res.status(200)
+            .json({
+                message: "CAMPUS UPDATED",
+                campus
+            });
+        }
     })
     .catch(error => {
         res.status(404)

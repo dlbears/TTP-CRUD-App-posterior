@@ -12,6 +12,7 @@ router.post('/', function(req, res, next) {
     address: req.body.address,
     description: req.body.description,
   })
+  
   .then(campus => {
     res.status(200)
     .json({
