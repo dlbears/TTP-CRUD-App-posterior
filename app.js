@@ -1,8 +1,18 @@
 const express = require('express');
 const app = express();
+const db = require('./database/db')
+const seedDatabase = require('./utilities/seedDatabase')
 
 app.use(express.json());
 app.use(express.urlencoded());
+
+if (process.env.NODE_ENV === 'production') {
+  db.sequelize.sync();
+} else {
+  db.sequelize.drop()
+  .then(() => db.sequelize.sync({alter: true}))
+  .then(() => seedDatabase())
+}
 
 app.use('/routes', require('./routes'));
 

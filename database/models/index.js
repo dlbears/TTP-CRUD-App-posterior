@@ -3,11 +3,9 @@
 const Students = require('./Students');
 const Campuses = require('./Campuses');
 
-const db = require('../db');
-db.sequelize.sync({alter: true});
+Students.campus = Students.belongsTo(Campuses, { as: 'campus' });
+Campuses.students = Campuses.hasMany(Students);
 
-Students.belongsTo(Campuses);
-Campuses.hasMany(Students);
 
 module.exports = {
   Students, Campuses
