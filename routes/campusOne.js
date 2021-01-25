@@ -6,7 +6,9 @@ const model = require('../database/models');
 
 //Get a campus
 router.get('/:id', function(req, res, next) {
-  model.Campus.findByPk(req.params.id)
+  model.Campus.findByPk(req.params.id, {
+    include: model.Campus.students
+  })
     .then(campus => {
         if (!campus){
             res.status(404)

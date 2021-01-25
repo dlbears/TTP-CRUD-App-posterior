@@ -5,7 +5,7 @@ const router = express.Router();
 const model = require('../database/models');
 
 //Get a campus
-router.get('/:id', function(req, res, next){ 
+router.delete('/:id', function(req, res, next){ 
     model.Campus.findByPk(req.params.id)
     .then(campus => {
         if (!campus){
