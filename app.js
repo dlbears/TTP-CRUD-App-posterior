@@ -5,11 +5,11 @@ const db = require('./database/db')
 const seedDatabase = require('./utilities/seedDatabase')
 
 //Change to true to retain changes in db between server restarts
-const noSeed = false; 
+const noSeed = true; 
 
 app.use(cors())
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded()); 
 
 if (process.env.NODE_ENV === 'production') {
   db.sequelize.sync();
@@ -24,9 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/routes', require('./routes'));
 
 
-app.listen(8080, () => {
-  console.log("Listening to port 8080");
-})
+app.listen(process.env.PORT)
 
 
 // // Here, we will sync our database, create our application, and export this module so that we can use it in the bin directory, where we will be able to establish a server to listen and handle requests and responses;

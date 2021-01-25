@@ -20,13 +20,13 @@ router.use('/studentAll', studentAllRouter);
 router.use('/studentOne', studentOneRouter);
 router.use('/studentCreate', studentCreateRouter);
 router.use('/studentDelete', studentDeleteRouter);
-//router.use('/studentUpdate', studentUpdateRouter);
+router.use('/studentUpdate', studentUpdateRouter);
 
 router.use('/campusAll', campusAllRouter);
 router.use('/campusOne', campusOneRouter);
 router.use('/campusCreate', campusCreateRouter);
 router.use('/campusDelete', campusDeleteRouter);
-//router.use('/campusUpdate', campusUpdateRouter);
+router.use('/campusUpdate', campusUpdateRouter);
 
 
 // Error handling middleware;
