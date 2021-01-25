@@ -24,9 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/routes', require('./routes'));
 
 
-app.listen(8080, () => {
-  console.log("Listening to port 8080");
-})
+app.listen(process.env.PORT);
 
 
 // // Here, we will sync our database, create our application, and export this module so that we can use it in the bin directory, where we will be able to establish a server to listen and handle requests and responses;
