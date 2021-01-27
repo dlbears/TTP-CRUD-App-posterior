@@ -4,12 +4,9 @@
 const Sequelize = require('sequelize');
 
 //calling your local psql
-const sequelize = new Sequelize('campus_students', 'postgres', 'Bakugan7399',{
-    host: process.env.DATABASE_URL || 'localhost',
+const sequelize = (process.env.DATABASE_URL && new Sequilize(process.env.DATABASE_URL)) || new Sequelize('campus_students', 'postgres', 'Bakugan7399',{
+    host: 'localhost',
     dialect: 'postgres',
-    dialectOptions: {
-        ssl: true 
-    }
 });
 
 const testDatabase = async () => {
