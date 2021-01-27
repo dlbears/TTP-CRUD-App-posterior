@@ -11,9 +11,9 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded()); 
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
   db.sequelize.sync();
-} else if (noSeed) {
+} else*/ if (noSeed) {
   db.sequelize.sync({alter: true});
 } else {
   db.sequelize.drop()
