@@ -4,7 +4,7 @@
 const Sequelize = require('sequelize');
 
 //calling your local psql
-const sequelize = (process.env.DATABASE_URL && new Sequilize(process.env.DATABASE_URL)) || new Sequelize('campus_students', 'postgres', 'Bakugan7399',{
+const sequelize = (process.env.DATABASE_URL && new Sequelize(process.env.DATABASE_URL)) || new Sequelize('campus_students', 'postgres', 'Bakugan7399',{
     host: 'localhost',
     dialect: 'postgres',
 });
