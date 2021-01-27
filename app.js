@@ -5,7 +5,7 @@ const db = require('./database/db')
 const seedDatabase = require('./utilities/seedDatabase')
 
 //Change to true to retain changes in db between server restarts
-const noSeed = true; 
+const noSeed = false; 
 
 app.use(cors())
 app.use(express.json());
